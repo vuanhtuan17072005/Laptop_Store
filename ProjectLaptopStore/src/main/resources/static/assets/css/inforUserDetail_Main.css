@@ -1,0 +1,123 @@
+:root {
+    --color-background : #f5f5f5 ;
+    --color-main : #ffd400 ;
+    --color-ink : #111111 ;
+    --color-line : #e5e5e5 ;
+}
+
+body{
+    background-color: var(--color-background);
+}
+
+/* Breadcrumb */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: var(--color-background);
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+  }
+  ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+  }
+
+/* End breadcrumb */
+
+/* Khối tóm tắt thông tin khách hàng */
+.summerize-infor-user {
+    /* display: flex; */
+    align-items: center;
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    justify-content: space-around;
+    padding: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    float: left;
+}
+
+.summerize-infor-user .infor-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.summerize-infor-user .inner-user-box {
+    font-size: larger;
+}
+
+.summerize-infor-user .infor-box a:hover {
+    color: white;
+    background-color: var(--color-main);
+}
+
+
+/* End khối tóm tắt thông tin khách hàng */
+
+/* Khối điều hướng màn hình */
+
+.box-item {
+    border-radius: 10px;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    margin: 10% 0;
+    padding: 16px 10px;
+    font-size: larger;
+}
+
+.box-item a {
+    text-decoration: none;
+}
+
+.box-main .box-item:hover {
+    color: var(--color-ink);
+    background-color: var(--color-main);
+    margin-left: 10px; /* Khoảng cách ban đầu giữa button và các item */
+    transition: transform 0.5s ease; /* Thêm hiệu ứng chuyển đổi mượt */
+}
+
+.box-main .box-item:hover a {
+    color: var(--color-ink);
+}
+/* End khối điều hướng màn hình */
+
+/* Khối quản lý thông tin cá nhân */
+.box-content{
+    margin-left: 28%;
+    /* margin-top: -7%;  */
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+.box-content .box-content-main {
+    text-align: center;
+    padding: 5%;
+}
+
+.box-content .box-content-main .box-content-item {
+    display: flex;
+    margin-left: 25%;
+    justify-content: space-between;
+}
+
+.box-content .box-content-item p {
+    margin-right: 25%;
+}
+
+
+/* End khối quản lý thông tin cá nhân */
+

@@ -1,0 +1,452 @@
+/* Sidebar - default style */
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40; /* Đổi màu nền cho sidebar */
+    transition: width 0.3s ease, visibility 0s 0.3s; /* Delay visibility change */
+    z-index: 1000; /* Đảm bảo sidebar nằm trên các phần tử khác */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng cho sidebar */
+}
+
+/* Sidebar header */
+.sidebar-header {
+    padding: 20px;
+    background-color: #eb2255; /* Màu nền header sidebar */
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #6c757d;
+}
+
+/* Menu items */
+.nav-link {
+    color: #f8f9fa !important;
+    font-size: 16px;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 10px;
+}
+
+/* Hover effect for menu items */
+.nav-link:hover {
+    background-color: #ec5489;
+    padding-left: 30px; /* Thêm hiệu ứng khi hover */
+    border-radius: 10px;
+}
+
+/* Content area */
+#wrapper {
+    display: flex;
+    justify-content: center;
+    transition: margin-left 0.3s ease;
+    padding-left: 0;
+    width: 80%;
+}
+
+/* Make sidebar collapse */
+#sidebar.collapsed {
+    width: 0;
+    visibility: hidden; /* Ẩn sidebar mà không ảnh hưởng đến layout */
+}
+
+/* Adjust wrapper when sidebar is collapsed */
+#sidebar.collapsed ~ #wrapper {
+    margin-left: 0;
+}
+
+/* Khi sidebar được mở lại */
+#sidebar:not(.collapsed) ~ #wrapper {
+    margin-left: 250px;
+}
+
+/* Button for toggling sidebar */
+#menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 20px;
+    z-index: 1100;
+    border-radius: 5px;
+}
+
+/* Responsive design adjustments */
+@media (min-width: 769px) {
+    #sidebar {
+        width: 250px;
+        visibility: visible;
+    }
+
+    #wrapper {
+        margin-left: 250px;
+    }
+
+    #sidebar.collapsed ~ #wrapper {
+        margin-left: 0;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #wrapper {
+        margin-left: 0;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    #sidebar {
+        width: 0;
+        visibility: hidden;
+    }
+
+    #sidebar.collapsed {
+        width: 250px;
+        visibility: visible;
+    }
+
+    #sidebar.collapsed ~ #wrapper {
+        margin-left: 0;
+    }
+}
+
+
+/* Breadcrumb */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: var(--color-background);
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+  }
+  ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+  }
+
+/* End breadcrumb */
+
+:root {
+    --about-yellow: #ffcc00;
+    --about-black: #171717;
+    --about-white: #ffffff;
+    --about-muted: #5e5e5e;
+    --about-line: #e8e8e8;
+}
+
+#wrapper {
+    width: auto;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+#wrapper > .container {
+    flex: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 40px clamp(20px, 5vw, 64px);
+}
+
+.about-page {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    color: var(--about-black);
+    container-type: inline-size;
+    animation: about-enter 500ms ease-out both;
+}
+
+.about-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+    min-height: 370px;
+    overflow: hidden;
+    background: var(--about-black);
+}
+
+.about-hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(32px, 5vw, 64px);
+    color: var(--about-white);
+}
+
+.about-eyebrow {
+    margin: 0 0 18px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
+.about-hero-copy .about-eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 3px;
+    margin: 0 8px 3px;
+    background: var(--about-yellow);
+}
+
+.about-hero h1 {
+    max-width: 650px;
+    margin: 0;
+    font-size: clamp(34px, 4vw, 54px);
+    font-weight: 800;
+    line-height: 1.08;
+}
+
+.about-intro {
+    max-width: 570px;
+    margin: 20px 0 26px;
+    color: #dedede;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 20px;
+    background: var(--about-yellow);
+    color: var(--about-black);
+    font-weight: 800;
+    text-decoration: none;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.about-cta:hover {
+    transform: translateY(-2px);
+    background: #ffda3d;
+    color: var(--about-black);
+}
+
+.about-hero-brand {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    overflow: hidden;
+    padding: 32px;
+    background: var(--about-yellow);
+    text-align: center;
+}
+
+.about-logo-frame {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 300px);
+    min-height: 92px;
+    padding: 18px;
+    background: var(--about-white);
+}
+
+.about-logo-frame img {
+    display: block;
+    width: 100%;
+    max-width: 270px;
+    height: auto;
+}
+
+.about-hero-brand > p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.about-brand-mark {
+    position: absolute;
+    right: -16px;
+    bottom: -45px;
+    color: rgb(23 23 23 / 8%);
+    font-size: 180px;
+    transform: rotate(-12deg);
+}
+
+.about-values {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 30px 0 0;
+    padding: 26px 0;
+    border-top: 1px solid var(--about-line);
+    border-bottom: 1px solid var(--about-line);
+}
+
+.about-value {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 8px 24px;
+}
+
+.about-value + .about-value {
+    border-left: 1px solid var(--about-line);
+}
+
+.about-value-icon {
+    display: grid;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    background: var(--about-yellow);
+    color: var(--about-black);
+    font-size: 17px;
+}
+
+.about-value h2 {
+    margin: 1px 0 6px;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.about-value p {
+    margin: 0;
+    color: var(--about-muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.about-story {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(28px, 6vw, 80px);
+    padding: 54px 8px 16px;
+}
+
+.about-story-heading .about-eyebrow {
+    color: #725b00;
+}
+
+.about-story h2 {
+    max-width: 420px;
+    margin: 0;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.about-story-copy p {
+    margin: 0 0 16px;
+    color: #454545;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+@container (max-width: 720px) {
+    .about-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero-copy {
+        padding: 40px;
+    }
+
+    .about-hero h1 {
+        font-size: 40px;
+    }
+
+    .about-hero-brand {
+        min-height: 250px;
+    }
+}
+
+@keyframes about-enter {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    #wrapper > .container {
+        padding: 28px 24px;
+    }
+
+    .about-values {
+        grid-template-columns: 1fr;
+        padding: 12px 0;
+    }
+
+    .about-value {
+        padding: 16px 8px;
+    }
+
+    .about-value + .about-value {
+        border-top: 1px solid var(--about-line);
+        border-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    #wrapper > .container {
+        padding: 64px 16px 24px;
+    }
+
+    .about-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero-copy {
+        padding: 32px 24px;
+    }
+
+    .about-hero h1 {
+        font-size: 36px;
+    }
+
+    .about-hero-brand {
+        min-height: 230px;
+    }
+
+    .about-story {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 36px 4px 8px;
+    }
+
+    .about-story h2 {
+        font-size: 26px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-page {
+        animation: none;
+    }
+
+    .about-cta {
+        transition: none;
+    }
+}
